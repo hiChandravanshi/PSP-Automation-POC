@@ -1,0 +1,1 @@
+![Mobile Automation Flow](../assets/mobileAutomationFlow.svg)
