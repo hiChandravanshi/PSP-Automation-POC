@@ -28,3 +28,20 @@ Let's list down the challenges and it impact on the different areas of automatio
 | 5 | visual validations / UI Expansion / Shrinkage                                                                                        | Visual Validation/UI Expansion / Shrinkage | Run visual tests on a single/default (most used) language                                                                                                                                                     |                                                                                            |
 | 6 | Automation failures in right-to-left (RTL) languages                                                                                 | RTL Handling                               | Add conditional scroll/swipe logic based on locale direction.                                                                                                                                                 | Example: direction = locale === 'ar' ? 'right' : 'left'                                    |
 | 7 | Long execution time across all locales                                                                                               | Smoke vs Full Suites                       | Run full regression for the default locale/most used language, smoke tests for others supported languages.                                                                                                    | Saves CI time while maintaining essential localization coverage.                           |
+
+
+# Automation Requirements From Other Teams
+
+From FE Team:
+
+- Selectors should be language agnostic
+- Accessibility IDs/automation ids should be there and should be language agnostic
+- Localisation implementations or any changes should be shared with the automation team
+    - Automation team should have access to language files which are used at the FE
+    - Methods and utility fucntions or any changes in them should be informed
+
+
+From BE Team:
+
+- Test users should not be restricted based on the local or language change at least on the lower and preprod environments
+- API's responses should be language agnostic all localisation logic should exist on front end
