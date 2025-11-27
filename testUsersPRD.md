@@ -1,6 +1,6 @@
 # **Test User Management Service – README**
 
-A centralized backend + frontend system for managing test users, tokens, environment registration, server health, and analytics for QA automation.
+A centralized backend system for managing test users, tokens, environment registration, server health, and analytics for QA automation.
 
 ---
 
