@@ -2,7 +2,7 @@
 
 To make the application fully accessibility-compliant, we are evaluating various tools in the market to identify the solution that best fits our technical ecosystem and product needs. Our goal is to adopt a tool that supports WCAG standards, integrates with our automation stack, and enables both automated and manual accessibility validation across mobile workflows.
 
-# BrowserStack – App Accessibility Testing 
+# BrowserStack – App Accessibility Testing
 
 BrowserStack Accessibility Testing is a cloud-based platform that enables automated, assisted, and manual accessibility testing for both web and mobile applications. It supports real-device validation, including screen-reader testing on actual iOS and Android devices.
 
@@ -46,7 +46,6 @@ axe DevTools for Mobile is a dedicated mobile accessibility testing toolkit crea
 
 - **Human-Verified Accessibility (Optional):** Deque provides services where trained accessibility testers can audit the app to ensure near-complete accessibility coverage — reducing internal qa, dev and design team workload.
 
-
 ## Cons:
 
 - **No BrowserStack Device Support:** axe DevTools does not integrate with BrowserStack real devices and has no planned future support.
@@ -56,7 +55,6 @@ axe DevTools for Mobile is a dedicated mobile accessibility testing toolkit crea
 - **Continuous Flow Scan (Not Supported):** The SDK requires manual invocation for each new screen render. Deque has confirmed they do not recommend or plan to support continuous automatic scanning across flows.
 
 - **Integration Overhead:** Requires more setup and environment management (e.g., Appium driver wrapping, maintaining local devices/emulators).
-
 
 ## Other Observations
 
@@ -91,3 +89,48 @@ BrowserStack uses Spectra (their custom engine), whereas axe DevTools uses the a
 - BrowserStack is cheaper upfront and fits current infrastructure.
 
 - axe DevTools may yield better long-term accessibility compliance due to expertise + accuracy + human audit options.
+
+# browserstack accessibility trial period observations
+
+**Basic setup and SDK features**
+
+```
+{
+    accessibility: true,
+    accessibilityOptions: {
+        wcagVersion: "wcag21aaa",
+        scannerProcessingTimeout: 10,
+        includeIssueType: {
+            bestPractice: true,
+        },
+        screenReaderAutomationReport: true
+    },
+}
+
+```
+
+- can define the WCAG versions just via wdio configs
+- can handle `screenReaderAutomationReport` default is false
+- different options can be managed just via wdio configs details can be seen [here](https://www.browserstack.com/docs/app-accessibility/automated-tests/configuration-options)
+
+**IOS:**
+
+- test execution works with app automate
+- accessibility dashboard looks like
+  ![ios runs](./assets/image.png)
+
+- accessibility reports and results look like
+  ![ios result](assets/ios_result.png)
+
+**ios issues**
+
+- the biomatrics is getting enabled on the iOS runs along with accessibility this adds a overhead of handling it in every test run
+
+**Android**
+
+- test execution works with app automate
+- accessibility dashboard looks like
+  ![android](assets/android.png)
+
+- accessibility reports and results look like
+  ![android result](assets/android_run.png)
