@@ -16,6 +16,8 @@ This document provides a comparison between using a **Monorepo (Nx + Workspaces)
 * **A single source of truth**
 * **Dependency graph**
 * **Single PR for all the changes**
+* **Have ability to manage app specific dependencies**
+* **have ability to keep common dependencies in project root which can be used by all apps**
 
 ### 👎 Cons
 
